@@ -29,4 +29,8 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  onChangeName(text:string, hero: Hero){
+    hero.name = text;
+  }
+
 }
