@@ -1,22 +1,13 @@
+
 <h2>My Heroes</h2>
 <ul class="heroes">
     <!-- heroes	contiene la lista de héroes simulados de HeroesComponentclase y hero contiene el objeto héroe actual para cada iteración a través de la lista.-->
     <li *ngFor="let hero of heroes">
-        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+        <button  [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
             <span class="badge">{{hero.id}}</span>
             <span class="name">{{hero.name}}</span>
         </button>
     </li>
 </ul>
 
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div>
-        <span>id: </span>{{selectedHero.id}}
-    </div>
-    <div>
-        <!-- <span>name: </span>{{selectedHero.name}} -->
-        <label for="name">Hero Name: </label>
-        <input id="name" [(ngModel)]="selectedHero.name" placeholder="name">
-    </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
