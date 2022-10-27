@@ -1,15 +1,24 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-    <!-- heroes	contiene la lista de héroes simulados de HeroesComponentclase y hero contiene el objeto héroe actual para cada iteración a través de la lista.-->
-    <li *ngFor="let hero of heroes">
-        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">{{hero.id}}</span>
-            <span class="name">{{hero.name}}</span>
-        </button>
-        
-        <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label>
+  <!-- heroes	contiene la lista de héroes simulados de HeroesComponentclase y hero contiene el objeto héroe actual para cada iteración a través de la lista.-->
+  <li *ngFor="let hero of heroes">
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
 
-    </li>
+    <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label>
+  </li>
+</ul>
+
+<ul class="users">
+  <li *ngFor="let user of users">
+    <div class="name">{{user?.name}}</div>
+    <div class="name">{{user?.email}}</div>
+    <!-- <div class="name">{{user?.address?.city}}</div>
+    <div class="name">{{user?.phone}}</div>
+    <div class="name">{{user?.company}}</div> -->
+  </li>
 </ul>
 
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
