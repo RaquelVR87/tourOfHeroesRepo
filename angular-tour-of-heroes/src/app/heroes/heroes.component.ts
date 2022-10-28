@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { heroTypeNames } from '../constants/hero.constants';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 import { User } from '../models/user.model';
@@ -22,28 +23,30 @@ export class HeroesComponent implements OnInit {
   // };
 
   // heroes = HEROES;
-  heroes: Hero [] = [];
-  selectedHero?: Hero;
+  // selectedHero?: Hero;
+
+  heroes: Hero[] = [];
   users?: User[];
+  heroTypesNames = heroTypeNames;
 
 
   constructor(
-    private userService: UserService, 
-    private heroService:HeroService,
-    private messageService: MessageService
-    ) { }
+    private userService: UserService,
+    private heroService: HeroService,
+    // private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
-    this,this.getHeroes();
+    this.getHeroes();
     // this.getUsers();
     // this.getUsersPromise();
     // this.getUsersPromiseAsync();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroresComponent: Selected hero id = ${hero.id}`);
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroresComponent: Selected hero id = ${hero.id}`);
+  // }
 
   onChangeName(text: string, hero: Hero) {
     hero.name = text;
@@ -66,17 +69,17 @@ export class HeroesComponent implements OnInit {
     });
   }
 
-  // getUsersPromise(): void{ //evitar
-  //   const url = "https://jsonplaceholder.typicode.com/users"
-  //   this.userService.getUsersPromise().then(data =>{
-  //     this.users = data;
-  //   });
-  // }
+  getUsersPromise(): void{ //evitar
+    const url = "https://jsonplaceholder.typicode.com/users"
+    this.userService.getUsersPromise().then(data =>{
+      this.users = data;
+    });
+  }
 
-  // async getUsersPromiseAsync(): Promise<void> { // se gasta mas para llamadas http
-  //   const url = "https://jsonplaceholder.typicode.com/users"
-  //   this.users = await this.userService.getUsersPromiseAsync();
+  async getUsersPromiseAsync(): Promise<void> { // se gasta mas para llamadas http
+    const url = "https://jsonplaceholder.typicode.com/users"
+    this.users = await this.userService.getUsersPromiseAsync();
 
-  // }
+  }
 }
 
