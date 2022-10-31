@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LabelComponent } from './label/label.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { LabelComponent } from './components/label/label.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from'@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeroTypesComponent } from './components/hero-types/hero-types.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroTypesComponent
   ],
   imports: [
     BrowserModule,

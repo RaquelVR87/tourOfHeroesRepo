@@ -17,9 +17,10 @@
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span *ngIf="hero.typeId"> - </span>
+      <app-hero-types [(typeId)]="hero.typeId"></app-hero-types>
     </a>
-    <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label>
-
+    <!-- <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label> -->
   </li>
 </ul>
 

@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { heroTypeNames } from '../constants/hero.constants';
-import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
-import { User } from '../models/user.model';
-import { HeroService } from '../services/hero.service';
-import { MessageService } from '../services/message.service';
-import { UserService } from '../services/user.service';
+import { heroTypeNames, heroTypes } from '../../constants/hero.constants';
+import { Hero } from '../../models/hero.model';
+import { HEROES } from '../../mock-heroes';
+import { User } from '../../models/user.model';
+import { HeroService } from '../../services/hero.service';
+import { MessageService } from '../../services/message.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-heroes',
@@ -27,6 +27,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
   users?: User[];
+  heroTypes = heroTypes;
   heroTypesNames = heroTypeNames;
 
 
