@@ -12,6 +12,9 @@ import {HttpClientModule} from'@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroTypesComponent } from './components/hero-types/hero-types.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +24,22 @@ import { HeroTypesComponent } from './components/hero-types/hero-types.component
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroTypesComponent
+    HeroTypesComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

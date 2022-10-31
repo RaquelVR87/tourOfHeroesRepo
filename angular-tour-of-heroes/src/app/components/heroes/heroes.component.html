@@ -1,4 +1,5 @@
-<h2>My Heroes</h2>
+<hr>
+<h2 style="color:blue">My Heroes: </h2>
 <!-- <ul class="heroes"> -->
 <!-- heroes	contiene la lista de héroes simulados de HeroesComponentclase y hero contiene el objeto héroe actual para cada iteración a través de la lista.-->
 <!-- <li *ngFor="let hero of heroes">
@@ -13,6 +14,16 @@
   </li>
 </ul> -->
 
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
@@ -21,12 +32,13 @@
       <app-hero-types [(typeId)]="hero.typeId"></app-hero-types>
     </a>
     <!-- <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label> -->
+    <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
 
+<hr>
 
-
-
+<h2 style="color:rgb(32, 179, 32)">My Users: </h2>
 <ul class="users">
   <li *ngFor="let user of users">
     <div class="name">{{user?.name}}</div>
@@ -38,3 +50,5 @@
 </ul>
 
 <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+
+<hr>

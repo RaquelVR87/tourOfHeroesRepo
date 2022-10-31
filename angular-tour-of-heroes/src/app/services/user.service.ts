@@ -21,9 +21,17 @@ export class UserService {
     return firstValueFrom(this.http.get<User[]>(url));
   }
 
+  // getUsersPromiseAsync(): Promise<User[]>{ // se gasta mas para llamadas http
+  //   const url = "https://jsonplaceholder.typicode.com/users";
+  //     // return  this.http.get<User[]>(url).toPromise();
+  //     return firstValueFrom(this.http.get<User[]>(url));
+  // }
+
   getUsersPromiseAsync(): Promise<User[]>{ // se gasta mas para llamadas http
-    const url = "https://jsonplaceholder.typicode.com/users";
+    const url = "api/users";
       // return  this.http.get<User[]>(url).toPromise();
       return firstValueFrom(this.http.get<User[]>(url));
   }
+
+
 }
