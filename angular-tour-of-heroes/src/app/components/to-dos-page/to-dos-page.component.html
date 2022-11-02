@@ -1,0 +1,20 @@
+<div class="to-dos-page">
+  <h2 style="color:blueviolet">ToDos: </h2>
+  <!-- <ul class="">
+  <li *ngFor="let todo of todos" class="liClass">
+    <div class="name">UserId: {{todo.userId}}</div>
+    <div class="name">Id: {{todo.id}}</div>
+    <div class="name">Title: {{todo.title}}</div>
+    <div class="name">Completed: {{todo.completed}}</div>
+  </li>
+</ul> -->
+
+  <div *ngFor="let todo of todos" class="to-dos_class"
+    [ngClass]="{completed: todo.completed, notCompleted: !todo.completed}">
+    <div *ngIf="todo.userId" [ngClass]="{bolder: todo.userId === 1}">{{userIdNames[todo.userId]}}</div>
+    <div> Id: {{todo.id}}</div>
+    <div> Title: {{todo.title}}</div>
+    <div> Completed: {{todo.completed}}</div>
+  </div>
+
+</div>

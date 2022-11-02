@@ -30,7 +30,46 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
-    return {heroes, users}; //todos
+
+    const toDos = [
+      {
+        "userId": 1,
+        "id": 1,
+        "title": "delectus aut autem",
+        "completed": false
+      },
+      {
+        "userId": 1,
+        "id": 8,
+        "title": "quo adipisci enim quam ut ab",
+        "completed": true
+      },
+      {
+        "userId": 2,
+        "id": 21,
+        "title": "suscipit repellat esse quibusdam voluptatem incidunt",
+        "completed": false
+      },
+      {
+        "userId": 2,
+        "id": 22,
+        "title": "distinctio vitae autem nihil ut molestias quo",
+        "completed": true
+      },
+      {
+        "userId": 1,
+        "id": 3,
+        "title": "fugiat veniam minus",
+        "completed": false
+      },
+      {
+        "userId": 2,
+        "id": 25,
+        "title": "voluptas quo tenetur perspiciatis explicabo natus",
+        "completed": true
+      },
+    ];
+    return { heroes, users, toDos };
   }
   // Overrides the genId method to ensure that a hero always has an id.
   // If the heroes array is empty,
