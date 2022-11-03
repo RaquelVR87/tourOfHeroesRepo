@@ -8,15 +8,16 @@ import { LabelComponent } from './components/label/label.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { CommonModule } from '@angular/common';
-import {HttpClientModule} from'@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroTypesComponent } from './components/hero-types/hero-types.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
-import { TodosComponent } from './components/to-dos-page/to-dos-page.component';
-import { TodoTypesComponent } from './components/to-do/to-do.component';
+
+import { TasksModule } from './tasks/tasks.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,21 +29,21 @@ import { TodoTypesComponent } from './components/to-do/to-do.component';
     DashboardComponent,
     HeroTypesComponent,
     HeroSearchComponent,
-    TodosComponent,
-    TodoTypesComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     CommonModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    TasksModule,
+    SharedModule,
   ],
   providers: [
-    
+
   ],
   bootstrap: [AppComponent]
 })

@@ -4,9 +4,9 @@ import { heroTypeNames, heroTypes } from '../../constants/hero.constants';
 import { Hero } from '../../models/hero.model';
 import { HEROES } from '../../mock-heroes';
 import { User } from '../../models/user.model';
-import { HeroService } from '../../services/hero.service';
-import { MessageService } from '../../services/message.service';
-import { UserService } from '../../services/user.service';
+import { HeroService } from '../../shared/services/hero.service';
+import { MessageService } from '../../shared/services/message.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-heroes',

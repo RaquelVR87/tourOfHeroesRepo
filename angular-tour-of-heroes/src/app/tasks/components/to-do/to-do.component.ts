@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { userIdNames } from 'src/app/constants/toDo.constants';
-import { ToDo } from 'src/app/models/toDo.model';
+import { userIdNames } from 'src/app/tasks/constants/toDo.constants';
+import { ToDo } from 'src/app/tasks/models/toDo.model';
 
 @Component({
   selector: 'app-to-do',
