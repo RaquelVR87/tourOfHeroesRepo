@@ -1,0 +1,13 @@
+<!-- <div class="to-do" [ngClass]="{completed: todo.completed, notCompleted: !todo.completed}">
+  <div *ngIf="todo.userId" [ngClass]="{bolder: todo.userId === 1}">{{userIdNames[todo.userId]}}</div>
+  <div> <u>Id:</u> {{todo.id}}</div>
+  <div> <u>Title:</u> {{todo.title}}</div>
+  <div> <u>Completed:</u> {{todo.completed}}</div>
+</div> -->
+
+<div class="to-do" [ngClass]="{completed: completed, notCompleted: !completed}">
+  <div *ngIf="userId" [ngClass]="{bolder: userId === 1}">{{userIdNames[userId]}}</div>
+  <div> <u>Id:</u> {{id}}</div>
+  <div> <u>Title:</u> {{title}}</div>
+  <div> <u>Completed:</u> {{completed}}</div>
+</div>
