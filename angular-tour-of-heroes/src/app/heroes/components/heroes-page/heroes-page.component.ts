@@ -2,16 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { heroTypeNames, heroTypes } from '../../constants/hero.constants';
 import { Hero } from '../../models/hero.model';
-import { HEROES } from '../../../mock-heroes';
+import { HEROES } from '../../../shared/mock-heroes';
 import { User } from '../../models/user.model';
 import { HeroService } from '../../../shared/services/hero.service';
 import { MessageService } from '../../../shared/services/message.service';
 import { UserService } from '../../../shared/services/user.service';
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  selector: 'app-heroes-page',
+  templateUrl: './heroes-page.component.html',
+  styleUrls: ['./heroes-page.component.scss']
 })
 export class HeroesComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class HeroesComponent implements OnInit {
 
   // heroes = HEROES;
   // selectedHero?: Hero;
-
+  newHero = new Hero();
   heroes: Hero[] = [];
   users?: User[];
   heroTypes = heroTypes;
@@ -94,6 +94,11 @@ export class HeroesComponent implements OnInit {
   async getUsersPromiseAsync(): Promise<void> { // se gasta mas para llamadas http
     const url = "https://jsonplaceholder.typicode.com/users"
     this.users = await this.userService.getUsersPromiseAsync();
+
+  }
+  onclickAddHero(): void {
+    this.add(this.newHero.name);
+    this.newHero.name = "";
 
   }
 }
