@@ -4,32 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LabelComponent } from './components/label/label.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { LabelComponent } from './heroes/components/label/label.component';
+import { HeroesComponent } from './heroes/components/heroes/heroes.component';
+import { HeroDetailComponent } from './heroes/components/hero-detail/hero-detail.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { MessagesComponent } from './messages/messages.component';
+import { MessagesComponent } from './heroes/components/messages/messages.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeroTypesComponent } from './components/hero-types/hero-types.component';
+import { HeroTypesComponent } from './heroes/components/hero-types/hero-types.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/services/in-memory-data.service';
-import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HeroSearchComponent } from './heroes/components/hero-search/hero-search.component';
 
 import { TasksModule } from './tasks/tasks.module';
 import { SharedModule } from './shared/shared.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LabelComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
     DashboardComponent,
-    HeroTypesComponent,
-    HeroSearchComponent,
- 
   ],
   imports: [
     BrowserModule,
@@ -41,6 +35,7 @@ import { SharedModule } from './shared/shared.module';
     ),
     TasksModule,
     SharedModule,
+    HeroesModule
   ],
   providers: [
 

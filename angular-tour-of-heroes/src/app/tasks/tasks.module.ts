@@ -19,7 +19,6 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     TasksRoutingModule,
     SharedModule,
-    FormsModule
   ]
 })
 export class TasksModule { }
