@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { heroTypeNames, heroTypes } from '../../constants/hero.constants';
 import { Hero } from '../../models/hero.model';
 import { HEROES } from '../../../shared/mock-heroes';
@@ -7,6 +7,7 @@ import { User } from '../../models/user.model';
 import { HeroService } from '../../../shared/services/hero.service';
 import { MessageService } from '../../../shared/services/message.service';
 import { UserService } from '../../../shared/services/user.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-heroes-page',
@@ -29,6 +30,8 @@ export class HeroesComponent implements OnInit {
   users?: User[];
   heroTypes = heroTypes;
   heroTypesNames = heroTypeNames;
+
+  @ViewChild("heroesCreateForm") heroesCreateForm: NgForm
 
   constructor(
     private userService: UserService,
@@ -97,7 +100,8 @@ export class HeroesComponent implements OnInit {
   }
   onSubmitHero(): void {
     this.add(this.newHero.name);
-    this.newHero.name = "";
+    // this.newHero.name = "";
+    this.heroesCreateForm.resetForm();
   
   }
 }

@@ -17,7 +17,7 @@
 <div>
   <form id="heroesCreateForm" name="heroesCreateForm" #heroesCreateForm="ngForm" (ngSubmit)="onSubmitHero()">
     <label for="new-hero">Hero name: </label>
-    <input id="new-hero" name="new-hero" [(ngModel)]="newHero.name"/>
+    <input id="new-hero" name="new-hero" [(ngModel)]="newHero.name" required/>
     <!-- (click) passes input value to add() and then clears the input -->
     <!-- <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
       Add hero
@@ -25,7 +25,7 @@
     <!-- <button type="submit" class="add-button" (click)="onclickAddHero()">
       Add hero
     </button> -->
-    <button type="submit" class="add-button" [disabled]="!newHero.name"> Add hero </button>
+    <button type="submit" class="add-button" [disabled]="!heroesCreateForm.form.valid"> Add hero </button>
   </form>
 </div>
 

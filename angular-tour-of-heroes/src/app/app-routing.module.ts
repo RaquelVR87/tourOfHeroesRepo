@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
   // { path: "heroes", component: HeroesComponent },
   // { path: "todos", component: TodosComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' } // esta ruta debe ser siempre la ultima
+  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' } // esta ruta debe ser siempre la ultima
 ];
 
 @NgModule({
