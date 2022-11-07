@@ -30,7 +30,6 @@ export class HeroesComponent implements OnInit {
   heroTypes = heroTypes;
   heroTypesNames = heroTypeNames;
 
-
   constructor(
     private userService: UserService,
     private heroService: HeroService,
@@ -96,10 +95,10 @@ export class HeroesComponent implements OnInit {
     this.users = await this.userService.getUsersPromiseAsync();
 
   }
-  onclickAddHero(): void {
+  onSubmitHero(): void {
     this.add(this.newHero.name);
     this.newHero.name = "";
-
+  
   }
 }
 
