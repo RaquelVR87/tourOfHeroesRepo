@@ -30,8 +30,10 @@ export class HeroesComponent implements OnInit {
   users?: User[];
   heroTypes = heroTypes;
   heroTypesNames = heroTypeNames;
+  displayModal: boolean = false;
 
   @ViewChild("heroesCreateForm") heroesCreateForm: NgForm
+
 
   constructor(
     private userService: UserService,
@@ -86,9 +88,9 @@ export class HeroesComponent implements OnInit {
     });
   }
 
-  getUsersPromise(): void{ //evitar
+  getUsersPromise(): void { //evitar
     const url = "https://jsonplaceholder.typicode.com/users"
-    this.userService.getUsersPromise().then(data =>{
+    this.userService.getUsersPromise().then(data => {
       this.users = data;
     });
   }
@@ -102,7 +104,17 @@ export class HeroesComponent implements OnInit {
     this.add(this.newHero.name);
     // this.newHero.name = "";
     this.heroesCreateForm.resetForm();
-  
+    this.displayModal = false;
+
+
+  }
+  showModalDialog(): void {
+    this.displayModal = true;
+  }
+
+  cancelModalDialog(): void{
+    this.displayModal = false;
+    this.heroesCreateForm.resetForm();
   }
 }
 

@@ -13,11 +13,11 @@
     <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label>
   </li>
 </ul> -->
-
+<p-dialog header="Add Hero" [(visible)]="displayModal" [modal]="true" icon="pi pi-external-link">
 <div>
   <form id="heroesCreateForm" name="heroesCreateForm" #heroesCreateForm="ngForm" (ngSubmit)="onSubmitHero()">
     <label for="new-hero">Hero name: </label>
-    <input id="new-hero" name="new-hero" [(ngModel)]="newHero.name" required/>
+    <input id="new-hero" name="new-hero" [(ngModel)]="newHero.name" required />
     <!-- (click) passes input value to add() and then clears the input -->
     <!-- <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
       Add hero
@@ -26,8 +26,14 @@
       Add hero
     </button> -->
     <button type="submit" class="add-button" [disabled]="!heroesCreateForm.form.valid"> Add hero </button>
+    <button type="button" class="add-button" (click)="cancelModalDialog()"> Cancel </button>
+    
   </form>
 </div>
+</p-dialog>
+
+<button type="button" (click)="showModalDialog()" icon="pi pi-info-circle" label="Show">Add Hero</button>
+
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
