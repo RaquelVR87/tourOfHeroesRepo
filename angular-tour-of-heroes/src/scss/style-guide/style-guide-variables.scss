@@ -1,0 +1,19 @@
+// :root {
+
+//   --color-1: rgb(66, 240, 240);
+//   --color-1-dark: rgb(56, 56, 245);
+// }
+
+:root {
+  --base-color-1: 197, 62%;
+  --color-1: hsla(var(--base-color-1), 50%);
+  --color-1-dark: hsla(var(--base-color-1), 40%);
+  --color-1-light: hsla(var(--base-color-1), 60%);
+
+  --color-base:0, 0%;
+  --color-white: hsl(var(--color-base), 100%);
+  --color-black: hsl(var(--color-base), 0%);
+
+  --color-2: hsl(211, 20%, 32%);
+
+}
