@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -9,11 +11,15 @@ import {DialogModule} from 'primeng/dialog';
   imports: [
     CommonModule,
     FormsModule,
-    DialogModule
+    DialogModule,
+    TableModule,
+    ButtonModule
   ],
   exports: [
     FormsModule,
-    DialogModule
+    DialogModule,
+    TableModule,
+    ButtonModule
   ]
 })
 export class SharedModule { }

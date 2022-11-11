@@ -1,6 +1,6 @@
 <div class="heroes-page">
   <hr>
-  <h2 style="color:blue">My Heroes: </h2>
+  <h2 style="color:blueviolet">Heroes: </h2>
   <!-- <ul class="heroes"> -->
   <!-- heroes	contiene la lista de héroes simulados de HeroesComponentclase y hero contiene el objeto héroe actual para cada iteración a través de la lista.-->
   <!-- <li *ngFor="let hero of heroes">
@@ -48,12 +48,74 @@
           <app-hero-types [(typeId)]="hero.typeId"></app-hero-types>
         </a>
         <!-- <app-label [text]="hero.name" (textChange)="onChangeName($event, hero)"></app-label> -->
-        <button type="button" class="heroes-page_container_row_hero_delete" title="delete hero" (click)="delete(hero)">x</button>
+        <button type="button" class="heroes-page_container_row_hero_delete" title="delete hero"
+          (click)="delete(hero)">x</button>
       </div>
     </div>
   </div>
 
+  <hr>
+  <h2 class="text-primary" style="text-align: center;">Heroes Table: Page, Sort, Sticky, Resize </h2>
 
+  <div class="card w-75 p-2 align-items-center m-auto border border-primary">
+    <p-table [value]="heroes" [tableStyle]="{'min-width': '50rem'}" [resizableColumns]="true"
+      styleClass="p-datatable-gridlines" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[2,5,10,15,20]"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pResizableColumn pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pResizableColumn pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th pResizableColumn pSortableColumn="typeId">TypeId <p-sortIcon field="typeId"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-hero>
+        <tr>
+          <td>{{hero.id}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.typeId}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <hr>
+  <h2 class="text-danger" style="text-align: center;">Heroes Table II: Dynamic </h2>
+
+  <div class="card w-75 p-2 align-items-center m-auto border border-danger">
+    <p-table [columns]="cols" [value]="heroes" [tableStyle]="{'min-width': '50rem'}" styleClass="p-datatable-gridlines"
+      [paginator]="true" [rows]="2" [rowsPerPageOptions]="[2,5,10,15,20]"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let heroCol of columns">
+            {{heroCol.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let heroCol of columns">
+            {{rowData[heroCol.field]}}
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-table>
+  </div>
   <!-- <div class="container">
   <ul class="heroes row">
     <li *ngFor="let hero of heroes" class="col-sm-12 col-md-6 col-lg-3">
@@ -68,21 +130,21 @@
   </ul>
   </div> -->
 
-
   <hr>
 
-  <h2 style="color:rgb(32, 179, 32)">My Users: </h2>
-  <ul class="users">
-    <li *ngFor="let user of users">
-      <div class="name">{{user?.name}}</div>
-      <div class="name">{{user?.email}}</div>
-      <!-- <div class="name">{{user?.address?.city}}</div>
+  <div class="card w-25 p-2 align-items-center border border-success m-auto">
+    <h2 class="text-success">Users: </h2>
+    <ul class="users">
+      <li *ngFor="let user of users">
+        <div class="name">{{user?.name}}</div>
+        <div class="name">{{user?.email}}</div>
+        <!-- <div class="name">{{user?.address?.city}}</div>
     <div class="name">{{user?.phone}}</div>
     <div class="name">{{user?.company}}</div> -->
-    </li>
-  </ul>
-
-  <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+      </li>
+    </ul>
+    <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+  </div>
 
   <hr>
 

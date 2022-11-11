@@ -12,7 +12,18 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-heroes-page',
   templateUrl: './heroes-page.component.html',
-  styleUrls: ['./heroes-page.component.scss']
+  styleUrls: ['./heroes-page.component.scss'],
+  styles: [`
+        :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+        }
+
+        /* .layout-news-active :host ::ng-deep .p-datatable tr > th {
+            top: 7rem;
+        } */
+    `]
 })
 export class HeroesComponent implements OnInit {
 
@@ -32,6 +43,10 @@ export class HeroesComponent implements OnInit {
   heroTypesNames = heroTypeNames;
   displayModal: boolean = false;
 
+  first = 0;
+  rows = 5;
+  cols: any[];
+
   @ViewChild("heroesCreateForm") heroesCreateForm: NgForm
 
 
@@ -46,6 +61,12 @@ export class HeroesComponent implements OnInit {
     // this.getUsers();
     // this.getUsersPromise();
     this.getUsersPromiseAsync();
+
+    this.cols = [
+      { field: 'id', header: 'Id' },
+      { field: 'name', header: 'Name' },
+      { field: 'typeId', header: 'TypeId' }
+  ];
   }
 
   // onSelect(hero: Hero): void {
@@ -105,16 +126,37 @@ export class HeroesComponent implements OnInit {
     // this.newHero.name = "";
     this.heroesCreateForm.resetForm();
     this.displayModal = false;
-
-
   }
+
   showModalDialog(): void {
     this.displayModal = true;
   }
 
-  cancelModalDialog(): void{
+  cancelModalDialog(): void {
     this.displayModal = false;
     this.heroesCreateForm.resetForm();
   }
+
+  next() {
+    this.first = this.first + this.rows;
+}
+
+prev() {
+    this.first = this.first - this.rows;
+}
+
+reset() {
+    this.first = 0;
+}
+
+isLastPage(): boolean {
+    return this.heroes ? this.first === (this.heroes.length - this.rows): true;
+}
+
+isFirstPage(): boolean {
+    return this.heroes ? this.first === 0 : true;
+}
+
+
 }
 
